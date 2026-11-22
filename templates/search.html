@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}Поиск{% endblock %}
+
+{% block content %}
+<h1>🔍 Поиск товаров</h1>
+
+<!-- Форма поиска -->
+<form method="get" action="/search" class="search-form">
+    <input type="text" name="q" placeholder="Введите запрос..." value="{{ query }}">
+    
+    <select name="sort_by">
+        <option value="name" {% if sort_by == "name" %}selected{% endif %}>По названию</option>
+        <option value="price" {% if sort_by == "price" %}selected{% endif %}>По цене</option>
+    </select>
+    
+    <select name="order">
+        <option value="asc" {% if order == "asc" %}selected{% endif %}>По возрастанию</option>
+        <option value="desc" {% if order == "desc" %}selected{% endif %}>По убыванию</option>
+    </select>
+    
+    <button type="submit" class="button">Искать</button>
+</form>
+
+<!-- Результаты поиска -->
+{% if query %}
+<h2>Результаты поиска: "{{ query }}"</h2>
+<div class="items-grid">
+    {% for item in items %}
+    <div class="item-card">
+        <h3>{{ item.name }}</h3>
+        <p class="price">{{ item.price }} ₽</p>
+    </div>
+    {% else %}
+    <p>Ничего не найдено</p>
+    {% endfor %}
+</div>
+{% endif %}
+
+<a href="/" class="button">На главную</a>
+{% endblock %}

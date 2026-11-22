@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Спасибо за отзыв{% endblock %}
+
+{% block content %}
+<div class="success-message">
+    <h1>🎉 Спасибо за ваш отзыв!</h1>
+    
+    <div class="feedback-summary">
+        <h3>Ваш отзыв отправлен:</h3>
+        <p><strong>Имя:</strong> {{ name }}</p>
+        <p><strong>Email:</strong> {{ email }}</p>
+        <p><strong>Оценка:</strong> 
+            {% for i in range(rating) %}⭐{% endfor %}
+        </p>
+        <p><strong>Сообщение:</strong> {{ message }}</p>
+    </div>
+    
+    <a href="/" class="button">На главную</a>
+    <a href="/items" class="button">В каталог</a>
+</div>
+{% endblock %}

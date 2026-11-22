@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Товар {{ item_id }}{% endblock %}
+
+{% block content %}
+<h1>📦 Информация о товаре</h1>
+
+<div class="item-detail">
+    <p><strong>Категория:</strong> {{ category|capitalize }}</p>
+    <p><strong>ID товара:</strong> {{ item_id }}</p>
+    <p><strong>Название:</strong> {{ item_name }}</p>
+</div>
+
+<a href="/items" class="button">← Назад в каталог</a>
+<a href="/" class="button">На главную</a>
+{% endblock %}

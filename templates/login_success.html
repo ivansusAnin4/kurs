@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Успешный вход{% endblock %}
+
+{% block content %}
+<div style="text-align: center; padding: 40px; background: #d4edda; border-radius: 10px;">
+    <h1 style="color: #155724;">✅ Добро пожаловать, {{ username }}!</h1>
+    <p style="font-size: 1.2rem;">Вы успешно вошли в систему.</p>
+    
+    <div style="margin-top: 30px;">
+        <a href="/" class="button">На главную</a>
+        <a href="/admin/dashboard" class="button">В админ-панель</a>
+    </div>
+</div>
+{% endblock %}

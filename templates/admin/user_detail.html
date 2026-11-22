@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Пользователь {{ username }}{% endblock %}
+
+{% block content %}
+<h1>📝 Информация о пользователе</h1>
+
+<div class="user-info">
+    <p><strong>Имя пользователя:</strong> {{ username }}</p>
+    <p><strong>Полное имя:</strong> {{ user.name }}</p>
+    <p><strong>Email:</strong> {{ user.email }}</p>
+    <p><strong>Роль:</strong> 
+        {% if user.role == "admin" %}👑 Администратор{% else %}👤 Пользователь{% endif %}
+    </p>
+    <p><strong>Статус:</strong> 
+        {% if user.active %}✅ Активен{% else %}❌ Неактивен{% endif %}
+    </p>
+</div>
+
+<div class="action-buttons">
+    <form method="post" action="/admin/users/{{ username }}/toggle">
+        <button type="submit" class="button">
+            {% if user.active %}❌ Деактивировать{% else %}✅ Активировать{% endif %}
+        </button>
+    </form>
+    
+    <a href="/admin/users" class="button">← Назад к списку</a>
+    <a href="/admin/dashboard" class="button">← В админ-панель</a>
+</div>
+{% endblock %}

@@ -1,0 +1,78 @@
+{% extends "base.html" %} 
+
+{% block title %}О нас{% endblock %} 
+
+{% block styles %}
+{{ super() }}
+<style>
+    .about-container {
+        overflow: hidden; /* Очистка float */
+        margin-bottom: 30px;
+    }
+    
+    .about-image {
+        float: left;
+        margin-right: 25px;
+        margin-bottom: 15px;
+        max-width: 300px;
+        width: 100%;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    
+    .about-text {
+        overflow: hidden;
+    }
+    
+    .about-text p {
+        line-height: 1.6;
+        margin-bottom: 15px;
+    }
+    
+    @media (max-width: 768px) {
+        .about-image {
+            float: none;
+            display: block;
+            margin: 0 auto 20px;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %} 
+<h1>О нашей компании</h1>
+
+<div class="about-container">
+    <img src="{{ url_for('static', path='images/books.jpg') }}" alt="ReadTech" class="about-image">
+    <div class="about-text">
+        <p><strong>ReadTech</strong> — это онлайн-витрина для умных покупателей. У нас вы можете выбирать и оценивать книги, электронику и журналы. Удобный поиск, фильтрация по цене и категориям, честные отзывы реальных пользователей. Простой интерфейс, быстрая навигация и адаптивный дизайн — всё для комфортного шопинга на любом устройстве.</p>
+        <p>Мы начали свой путь в 2024 году с простой идеи: сделать покупки осознанными, а выбор — лёгким. Сегодня ReadTech — это сообщество людей, которые ценят качество, знания и современные технологии.</p>
+    </div>
+</div>
+
+<h2>Наши технологии:</h2>
+<ul>
+    <li>🐍 Python 3.11+</li>
+    <li>🚀 FastAPI</li>
+    <li>🎨 Jinja2 Templates</li>
+    <li>💾 SQLite/PostgreSQL</li>
+</ul>
+
+<h2>Наша команда:</h2>
+<div class="team-grid">
+    <div class="team-card">
+        <h3>Ясин</h3>
+        <p>Backend Developer</p>
+    </div>
+    <div class="team-card">
+        <h3>Никита</h3>
+        <p>Frontend Developer</p>
+    </div>
+    <div class="team-card">
+        <h3>Иван</h3>
+        <p>DevOps Engineer</p>
+    </div>
+</div>
+
+<a href="/index" class="button">На главную</a>
+{% endblock %}
